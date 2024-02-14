@@ -1,0 +1,3 @@
+[Dependencies]
+fastai
+scikit-image(base)

@@ -12,6 +12,9 @@ def predict(img):
     #return the probability that the breed of the image is correct
     return {labels[i]: float(probs[i]) for i in range(len(labels))}
 
-#launch the trained model in a Gradio web app
-gr.Interface(fn=predict, inputs=gr.Image(width=512, height=512), outputs=gr.Label(num_top_classes=5)).launch(share=True)
+title = "Dog/Cat Breed Classifier"
+description = "A dog/cat breed classifier trained on the Oxford Pets dataset with fastai."
+examples = ['siamese.jpg']
 
+#launch the trained model in a Gradio web app
+gr.Interface(fn=predict, inputs=gr.Image(width=512, height=512), outputs=gr.Label(num_top_classes=3), title=title, description=description, examples=examples).launch(share=True)
